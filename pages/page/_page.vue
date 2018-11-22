@@ -15,7 +15,7 @@ export default {
     Article
   },
   async asyncData({ params }) {
-    const { page = 1 } = params;
+    const { page = 1 } = params
     const res = await api.article.getArts({ page })
     return {
       data: res.data
