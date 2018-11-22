@@ -1,9 +1,9 @@
 <template>
   <div class="item">
-    <h3>{{ item.title }}</h3>
-    <div class="description">司法局时空裂缝是否涉及到发送到家乐福圣诞节快乐方式打开了俯拾地芥发送的看法是的发生的考虑福建省地方sdfsdf扫地</div>
+    <h3><nuxt-link :to="`/article/${item._id}`">{{ item.title }}</nuxt-link></h3>
+    <div class="description">{{ item.content }}</div>
     <div class="meta">
-      <span>2017.01.01</span>
+      <span>{{ item.createdAt }}</span>
       <span>admin</span>
     </div>
   </div>
@@ -12,9 +12,9 @@
 export default {
   props: {
     item: {
-      type: Array,
+      type: Object,
       default() {
-        return []
+        return {}
       }
     }
   }
@@ -24,6 +24,7 @@ export default {
   .item {
     border-bottom: 1px dashed #ccc;
     padding-bottom: 16px;
+    margin-bottom: 16px;
     h3 {
       font-size: 18px;
     }
@@ -32,7 +33,7 @@ export default {
       padding: 12px 0;
     }
     .meta {
-      font-size: 12px;
+      color: #555;
       span {
         margin-right: 16px;
       }

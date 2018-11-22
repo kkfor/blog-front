@@ -2,7 +2,10 @@
   <header>
     <div class="container">
       <nav>
-        首页
+        <nuxt-link
+          to="/"
+          exact>首页</nuxt-link>
+        <nuxt-link to="/category/label">分类1</nuxt-link>
       </nav>
     </div>
   </header>
@@ -20,5 +23,15 @@ export default {
     left: 0;
     right: 0;
     background: #fff;
+    nav {
+      a {
+        font-size: 16px;
+        line-height: 56px;
+        padding: 0 12px;
+        &:hover {
+          color: #111;
+        }
+      }
+    }
   }
 </style>
