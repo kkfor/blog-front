@@ -1,7 +1,9 @@
 <template>
   <div>
     <Article :arts="data.arts" />
-    <div class="page">
+    <div
+      v-if="data.pages>1"
+      class="page">
       <nuxt-link to="/">1</nuxt-link>
       <nuxt-link
         v-for="num in data.pages"
@@ -20,6 +22,9 @@ export default {
   components: {
     Article
   },
+  // fetch({ store }) {
+  //   store.commit('article/GET_LIST')
+  // },
   async asyncData({ params }) {
     const { page = 1 } = params;
     const res = await api.article.getArts({ page })
@@ -27,6 +32,11 @@ export default {
       data: res.data
     }
   }
+  // computed: {
+  //   data() {
+  //     return this.$store.state.article.list
+  //   }
+  // }
 }
 </script>
 
