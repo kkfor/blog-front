@@ -5,14 +5,22 @@
         <nuxt-link
           to="/"
           exact>首页</nuxt-link>
-        <nuxt-link to="/category/label">分类1</nuxt-link>
+        <nuxt-link
+          v-for="(item, index) in list"
+          :key="index"
+          to="/category/label"
+        >{{ item.slug }}</nuxt-link>
       </nav>
     </div>
   </header>
 </template>
 <script>
 export default {
-  
+  computed: {
+    list(){
+      return this.$store.state.category.list
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
