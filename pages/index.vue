@@ -1,8 +1,14 @@
 <template>
   <div>
     <Article :arts="data.arts" />
-    <nuxt-link to="/">1</nuxt-link>
-    <nuxt-link to="/page/2">2</nuxt-link>
+    <div class="page">
+      <nuxt-link to="/">1</nuxt-link>
+      <nuxt-link
+        v-for="num in data.pages"
+        v-if="num!=1"
+        :key="num"
+        :to="`/page/${num}`">{{ num }}</nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -25,4 +31,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page {
+  a {
+    padding: 4px;
+  }
+}
 </style>
