@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <div class="main-content">
+    <div class="main-left">
       <slot />
     </div>
     <Aside />
@@ -22,10 +22,8 @@ export default {
     margin-top: 56px;
     padding: 16px 0;
   }
-  .main-content {
+  .main-left {
     flex: 1;
-    background: #fff;
-    padding: 16px;
     margin-right: 16px;
   }
 </style>

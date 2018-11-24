@@ -28,6 +28,22 @@ a {
   // }
 }
 
+input, textarea {
+  width: 100%;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  line-height: inherit;
+  color: inherit;
+  &:focus {
+    outline: none;
+  }
+}
+textarea {
+  padding: 8px;
+  resize: none;
+}
+
 .container {
   max-width: 960px;
   margin: 0 auto;

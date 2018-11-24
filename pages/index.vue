@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list-main">
     <Article :arts="data.arts" />
     <div
       v-if="data.pages>1"
@@ -41,6 +41,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.list-main {
+  background: #fff;
+  padding: 16px;
+}
 .page {
   a {
     padding: 4px;
