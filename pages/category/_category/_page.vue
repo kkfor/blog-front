@@ -1,20 +1,21 @@
 <template>
   <div>
-    <Article />
+    <Article :arts="list.arts" />
   </div>
 </template>
 
 <script>
-import api from "~/api"
-import Article from "~/components/article"
+import api from "~/api";
+import Article from "~/components/article";
 
 export default {
   components: {
     Article
   },
+
   fetch({ store, params }) {
-    const { page = 1 } = params
-    return store.dispatch('article/getList', { page })
+    console.log(params)
+    return store.dispatch('article/getList', params)
   },
 
   computed: {
@@ -22,10 +23,8 @@ export default {
       return this.$store.state.article.list
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
-
 </style>
