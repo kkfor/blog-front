@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import api from '~/api'
+import api from "~/api";
 
 export default {
   props: {
@@ -76,18 +76,19 @@ export default {
     this.loadCommentList()
   },
 
-
   methods: {
+    // 初始化评论列表
     loadCommentList() {
-      this.$store.dispatch('comment/getList', { article: this.id })
+      this.$store.dispatch("comment/getList", { articleId: this.id })
     },
+    // 提交评论
     submit() {
       const obj = {
-        article: this.id,
+        articleId: this.id,
         content: this.content,
         ...this.user
       }
-      this.$store.dispatch('comment/postItem', obj)
+      this.$store.dispatch("comment/postItem", obj)
     }
   }
 }

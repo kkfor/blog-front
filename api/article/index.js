@@ -9,21 +9,21 @@ const url = {
 }
 
 export default {
-  getItem (id) {
+  getItem(id) {
     const uri = url.getItem + id
     return ajax.get(uri)
   },
-  getList (params) {
+  getList(params) {
     return ajax.get(url.getList, params)
   },
-  postItem (obj) {
+  postItem(obj) {
     return ajax.post(url.postItem, obj)
   },
-  putItem (id, obj) {
+  putItem(id, obj) {
     const uri = url.putItem + id
     return ajax.put(uri, obj)
   },
-  delItem (id) {
+  delItem(id) {
     const uri = url.delItem + id
     return ajax.del(uri)
   }
