@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Article :arts="data.arts" />
+    <Article :arts="list.arts" />
   </div>
 </template>
 
@@ -12,11 +12,15 @@ export default {
   components: {
     Article
   },
-  async asyncData({ params }) {
-    const res = await api.article.getArts(params);
-    return {
-      data: res.data
-    };
+
+  fetch({ store, params }) {
+    return store.dispatch('article/getList', params)
+  },
+
+  computed: {
+    list() {
+      return this.$store.state.article.list
+    }
   }
 };
 </script>

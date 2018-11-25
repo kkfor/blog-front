@@ -1,30 +1,30 @@
 import ajax from '../ajax'
 
 const url = {
-  getArt: '/article/',
-  getArts: '/article',
-  postArt: '/article',
-  putArt: '/article/',
-  delArt: '/article/'
+  getItem: '/article/',
+  getList: '/article',
+  postItem: '/article',
+  putItem: '/article/',
+  delItem: '/article/'
 }
 
 export default {
-  getArt (id) {
-    const uri = url.getArt + id
+  getItem (id) {
+    const uri = url.getItem + id
     return ajax.get(uri)
   },
-  getArts (params) {
-    return ajax.get(url.getArts, params)
+  getList (params) {
+    return ajax.get(url.getList, params)
   },
-  postArt (obj) {
-    return ajax.post(url.postArt, obj)
+  postItem (obj) {
+    return ajax.post(url.postItem, obj)
   },
-  putArt (id, obj) {
-    const uri = url.putArt + id
+  putItem (id, obj) {
+    const uri = url.putItem + id
     return ajax.put(uri, obj)
   },
-  delArt (id) {
-    const uri = url.delArt + id
+  delItem (id) {
+    const uri = url.delItem + id
     return ajax.del(uri)
   }
 }

@@ -14,12 +14,10 @@ export default {
   components: {
     Item
   },
-  props: {
-    arts: {
-      type: Array,
-      default() {
-        return []
-      }
+
+  computed: {
+    arts() {
+      return this.$store.state.article.list.arts
     }
   }
 }

@@ -1,22 +1,17 @@
 import api from '../api'
 
 export const actions = {
-  nuxtServerInit(store, { req }) {
+  nuxtServerInit(store, { req, params, route }) {
     const initAppData = [
-      store.dispatch('getHotList'),
-      store.dispatch('getCategory')
+      store.dispatch('article/getHotList'),
+      store.dispatch('category/getList')
     ]
 
+    const { articleId } = params
+    if(articleId) {
+      initAppData.push(store.dispatch('comment/getList', {article: articleId}))
+    }
+
     return Promise.all(initAppData)
-  },
-
-  async getHotList({ commit }) {
-    const res = await api.article.getArts({ hot: 1 })
-    commit('article/GET_HOT_LIST', res)
-  },
-
-  async getCategory({ commit }) {
-    const res = await api.category.getCategories()
-    commit('category/GET_LIST', res)
   }
 }

@@ -1,15 +1,16 @@
 <template>
   <div class="list-main">
-    <Article :arts="data.arts" />
+    <Article />
     <div
-      v-if="data.pages>1"
+      v-if="list.pages>1"
       class="page">
       <nuxt-link to="/">1</nuxt-link>
       <nuxt-link
-        v-for="num in data.pages"
+        v-for="num in list.pages"
         v-if="num!=1"
         :key="num"
-        :to="`/page/${num}`">{{ num }}</nuxt-link>
+        :to="`/page/${num}`"
+      >{{ num }}</nuxt-link>
     </div>
   </div>
 </template>
@@ -22,21 +23,16 @@ export default {
   components: {
     Article
   },
-  // fetch({ store }) {
-  //   store.commit('article/GET_LIST')
-  // },
-  async asyncData({ params }) {
-    const { page = 1 } = params;
-    const res = await api.article.getArts({ page })
-    return {
-      data: res.data
+  fetch({ store, params }) {
+    const { page = 1 } = params
+    return store.dispatch('article/getList', { page })
+  },
+
+  computed: {
+    list() {
+      return this.$store.state.article.list
     }
   }
-  // computed: {
-  //   data() {
-  //     return this.$store.state.article.list
-  //   }
-  // }
 }
 </script>
 
