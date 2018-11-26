@@ -27,13 +27,14 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    {src: '~assets/styles/index.scss', lang: 'scss'}
+    { src: '~assets/styles/index.scss', lang: 'scss' }
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/filter.js'
   ],
 
   /*
