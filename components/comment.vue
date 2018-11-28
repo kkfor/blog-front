@@ -79,12 +79,12 @@ export default {
   methods: {
     // 初始化评论列表
     loadCommentList() {
-      this.$store.dispatch("comment/getList", { articleId: this.id })
+      this.$store.dispatch("comment/getList", { article: this.id })
     },
     // 提交评论
     submit() {
       const obj = {
-        articleId: this.id,
+        article: this.id,
         content: this.content,
         user: this.user
       }

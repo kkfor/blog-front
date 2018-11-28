@@ -11,7 +11,7 @@ const mutations = {
     state.list = action.result
   },
   POST_ITEM(state, action) {
-    state.list.data.push(action.data)
+    state.list.data.push(action.result)
   }
 }
 
