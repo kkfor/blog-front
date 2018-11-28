@@ -1,3 +1,6 @@
+/**
+ * 时间格式化工具
+ */
 export default (times, format = 'yyyy.MM.dd hh:mm:ss') => {
   const time = Date.parse(times)
   if (!time) return null

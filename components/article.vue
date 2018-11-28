@@ -2,7 +2,7 @@
   <div class="article-list">
     <div>
       <Item
-        v-for="(item, index) in list.arts"
+        v-for="(item, index) in list.data"
         :item="item"
         :key="index" />
     </div>

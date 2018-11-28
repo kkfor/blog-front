@@ -1,15 +1,17 @@
 import api from '../api'
 
 const state = () => ({
-  list: []
+  list: {
+    data: []
+  }
 })
 
 const mutations = {
   GET_LIST(state, action) {
-    state.list = action.data
+    state.list = action.result
   },
   POST_ITEM(state, action) {
-    state.list.push(action.data)
+    state.list.data.push(action.data)
   }
 }
 

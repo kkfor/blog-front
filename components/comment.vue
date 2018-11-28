@@ -1,13 +1,17 @@
 <template>
   <div class="comment">
     <section class="comment-list">
-      <div class="header">共 <b>{{ list.length }}</b> 条评论</div>
-      <div
-        v-for="(item, index) in list"
-        :key="index"
-        class="item"
-      >
-        <div class="user"><b>{{ item.name }}</b></div>
+      <div class="header">
+        共
+        <b>{{ list.data.length }}</b> 条评论
+      </div>
+      <div 
+        v-for="(item, index) in list.data" 
+        :key="index" 
+        class="item">
+        <div class="user">
+          <b>{{ item.user.name }}</b>
+        </div>
         <div class="content">{{ item.content }}</div>
         <div>回复</div>
       </div>
@@ -15,29 +19,25 @@
     <section class="comment-form">
       <div class="user">
         <input
-          v-model="user.name"
-          class="name"
-          type="text"
-          placeholder="昵称(必填)"
-        >
+          v-model="user.name" 
+          class="name" 
+          type="text" 
+          placeholder="昵称(必填)">
         <input
-          v-model="user.email"
-          type="text"
-          placeholder="邮箱(必填,不会公开)"
-        >
+          v-model="user.email" 
+          type="text" 
+          placeholder="邮箱(必填,不会公开)">
         <input
-          v-model="user.site"
-          type="text"
-          placeholder="网站(选填)"
-        >
+          v-model="user.site" 
+          type="text" 
+          placeholder="网站(选填)">
       </div>
       <div>
         <textarea
-          v-model="content"
-          placeholder="写下你的评论..."
-          name="" 
-          rows="5"
-        />
+          v-model="content" 
+          placeholder="写下你的评论..." 
+          name 
+          rows="5"/>
       </div>
       <div class="tools">
         <span @click="submit">发布</span>
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import api from "~/api";
+import api from "~/api"
 
 export default {
   props: {
@@ -86,7 +86,7 @@ export default {
       const obj = {
         articleId: this.id,
         content: this.content,
-        ...this.user
+        user: this.user
       }
       this.$store.dispatch("comment/postItem", obj)
     }

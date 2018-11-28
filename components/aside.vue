@@ -4,7 +4,7 @@
       <div>热门文章</div>
       <ul>
         <li
-          v-for="(item, index) in arts"
+          v-for="(item, index) in list"
           :key="index">
           <i>{{ index+1 }}</i>
           <nuxt-link
@@ -21,7 +21,7 @@ import api from '@/api'
 
 export default {
   computed: {
-    arts() {
+    list() {
       return this.$store.state.article.hot
     }
   }

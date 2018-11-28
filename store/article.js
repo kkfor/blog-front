@@ -2,7 +2,7 @@ import api from '../api'
 
 const state = () => ({
   list: {
-    arts: []
+    data: []
   },
   hot: [],
   item: {}
@@ -10,14 +10,14 @@ const state = () => ({
 
 const mutations = {
   GET_LIST(state, action) {
-    state.list = action.data
+    state.list = action.result
   },
 
   GET_HOT_LIST(state, action) {
-    state.hot = action.data.arts
+    state.hot = action.result.data
   },
   GET_ITEM(state, action) {
-    state.item = action.data
+    state.item = action.result
   }
 }
 
