@@ -13,7 +13,7 @@
           <b>{{ item.user.name }}</b>
         </div>
         <div class="content">{{ item.content }}</div>
-        <div>回复</div>
+        <div @click="reply(item._id)">回复</div>
       </div>
     </section>
     <section class="comment-form">
@@ -58,6 +58,7 @@ export default {
   },
   data() {
     return {
+      pid: null,
       user: {
         name: null,
         email: null,
@@ -73,7 +74,12 @@ export default {
   },
 
   mounted() {
-    this.loadCommentList()
+    if (!this.list.total) {
+      this.loadCommentList()
+    }
+  },
+  destroyed() {
+    this.$store.dispatch('comment/clearList')
   },
 
   methods: {
@@ -81,9 +87,14 @@ export default {
     loadCommentList() {
       this.$store.dispatch("comment/getList", { article: this.id })
     },
+    // 回复
+    reply(pid) {
+      this.pid = pid
+    },
     // 提交评论
     submit() {
       const obj = {
+        pid: this.pid,
         article: this.id,
         content: this.content,
         user: this.user

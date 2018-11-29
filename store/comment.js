@@ -12,6 +12,11 @@ const mutations = {
   },
   POST_ITEM(state, action) {
     state.list.data.push(action.result)
+  },
+  CLEAR_LIST(state) {
+    state.list = {
+      data: []
+    }
   }
 }
 
@@ -23,6 +28,9 @@ const actions = {
   async postItem({ commit }, obj) {
     const res = await api.comment.postItem(obj)
     commit('POST_ITEM', res)
+  },
+  clearList({ commit }) {
+    commit('CLEAR_LIST')
   }
 }
 
