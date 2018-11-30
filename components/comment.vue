@@ -32,6 +32,14 @@
           type="text" 
           placeholder="网站(选填)">
       </div>
+      <div class="reply">
+        <div class="reply-user">
+          <span>回复: @xxxx</span>
+        </div>
+        <div class="reply-content">
+          内容
+        </div>
+      </div>
       <div>
         <textarea
           v-model="content" 
