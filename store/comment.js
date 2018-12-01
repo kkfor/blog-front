@@ -12,6 +12,7 @@ const mutations = {
   },
   POST_ITEM(state, action) {
     state.list.data.push(action.result)
+    state.list.total++
   },
   CLEAR_LIST(state) {
     state.list = {

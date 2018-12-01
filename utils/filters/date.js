@@ -1,7 +1,9 @@
 /**
  * 时间格式化工具
  */
-export default (times, format = 'yyyy.MM.dd hh:mm:ss') => {
+
+//  返回时间字符串
+export const date = (times, format = 'yyyy.MM.dd hh:mm:ss') => {
   const time = Date.parse(times)
   if (!time) return null
 
@@ -29,4 +31,19 @@ export default (times, format = 'yyyy.MM.dd hh:mm:ss') => {
 
   return format
 
+}
+
+// 返回多少天前
+export const timeAgo = (times) => {
+  const time = Date.parse(times)
+  if (!time) return null
+
+  const between = (Date.now() / 1000) - (time / 1000)
+  if (between < 3600) {
+    return Object.is(~~(between / 60), 0) ? '刚刚' : ~~(between / 60) + '分钟前'
+  } else if (between < 86400) {
+    return ~~(between / 3600) + '小时前'
+  } else {
+    return ~~(between / 86400) + '天前'
+  }
 }

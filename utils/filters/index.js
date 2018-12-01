@@ -1,7 +1,8 @@
 import text from './text'
-import date from './date'
+import { date, timeAgo } from './date'
 
 export {
   text,
-  date
+  date,
+  timeAgo
 }

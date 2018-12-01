@@ -4,7 +4,7 @@
     <section class="comment-list">
       <div class="header">
         共
-        <b>{{ list.data.length }}</b> 条评论
+        <b>{{ list.total }}</b> 条评论
       </div>
       <div 
         v-for="(item, index) in list.data" 
@@ -24,7 +24,12 @@
             {{ item.content }}
           </div>
         </div>
-        <div @click="reply(item._id)">回复</div>
+        <div class="meta">
+          <span 
+            class="reply" 
+            @click="reply(item._id)">回复</span>
+          <span>{{ item.createdAt | timeAgo }}</span>
+        </div>
       </div>
     </section>
     <!-- 评论框 -->
@@ -163,7 +168,7 @@ export default {
     border-bottom: 1px solid #ccc;
   }
   .item {
-    padding: 16px 0;
+    padding: 16px 2px;
     border-bottom: 1px dashed #ccc;
     .content {
       padding: 12px 0;
@@ -177,6 +182,15 @@ export default {
           color: #777;
         }
       }
+    }
+    .meta {
+      .reply {
+        padding-right: 8px;
+        cursor: pointer;
+      }
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
     }
   }
 }
