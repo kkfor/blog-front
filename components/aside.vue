@@ -31,6 +31,7 @@ export default {
 <style lang="scss" scoped>
 aside {
   width: 260px;
+  margin-left: 16px;
 }
 .aside-article {
   overflow: hidden;

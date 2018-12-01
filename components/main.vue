@@ -24,7 +24,6 @@ export default {
   }
   .main-left {
     flex: 1;
-    margin-right: 16px;
   }
 </style>
 

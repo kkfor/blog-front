@@ -13,16 +13,13 @@
         <div class="user">
           <b>{{ item.user.name }}</b>
           <span class="meta">
-            <span 
-              v-if="item.meta.location && item.meta.location.country && item.meta.location.city" 
-              class="location">
-              <span>
-                {{ item.meta.location.country }}
-              </span>
+            <span
+              v-if="item.meta.location && item.meta.location.country && item.meta.location.city"
+              class="location"
+            >
+              <span>{{ item.meta.location.country }}</span>
               <span v-if="item.meta.location.city">-</span>
-              <span>
-                {{ item.meta.location.city }}
-              </span>
+              <span>{{ item.meta.location.city }}</span>
             </span>
           </span>
         </div>
@@ -33,9 +30,7 @@
             <div class="reply-user">@{{ findReplyParent(item.pid, 1) }}</div>
             <div class="reply-content">{{ findReplyParent(item.pid, 2) }}</div>
           </div>
-          <div>
-            {{ item.content }}
-          </div>
+          <div>{{ item.content }}</div>
         </div>
         <div class="status">
           <span 
@@ -48,22 +43,22 @@
     <!-- 评论框 -->
     <section class="comment-form">
       <div class="user">
-        <input
+        <input 
           v-model="user.name" 
           class="name" 
           type="text" 
           placeholder="昵称(必填)">
-        <input
+        <input 
           v-model="user.email" 
           type="text" 
           placeholder="邮箱(必填,不会公开)">
-        <input
+        <input 
           v-model="user.site" 
           type="text" 
           placeholder="网站(选填)">
       </div>
-      <div
-        v-if="!!pid"
+      <div 
+        v-if="!!pid" 
         class="reply">
         <div class="reply-user">
           <span>回复: @{{ replyComment.user.name }}</span>
@@ -71,12 +66,10 @@
             class="cancel-reply" 
             @click="cancelReply">取消回复</span>
         </div>
-        <div class="reply-content">
-          {{ replyComment.content }}
-        </div>
+        <div class="reply-content">{{ replyComment.content }}</div>
       </div>
       <div>
-        <textarea
+        <textarea 
           v-model="content" 
           placeholder="写下你的评论..." 
           name 
@@ -90,7 +83,8 @@
 </template>
 
 <script>
-import api from "~/api"
+import api from "~/api";
+import { storageUser } from "~/utils/storage";
 
 export default {
   props: {
@@ -108,50 +102,57 @@ export default {
         site: null
       },
       content: null
-    }
+    };
   },
   computed: {
     list() {
-      return this.$store.state.comment.list
+      return this.$store.state.comment.list;
     },
     replyComment() {
-      return this.list.data.find(comment => Object.is(comment._id, this.pid))
+      return this.list.data.find(comment => Object.is(comment._id, this.pid));
     }
   },
 
   mounted() {
+    this.initUser()
     if (!this.list.total) {
-      this.loadCommentList()
+      this.loadCommentList();
     }
   },
   destroyed() {
-    this.$store.dispatch('comment/clearList')
+    this.$store.dispatch("comment/clearList");
   },
 
   methods: {
+    initUser() {
+      const user = storageUser.get();
+      if (user && user.name && user.email) {
+        this.user = user
+      }
+    },
     // 初始化评论列表
     loadCommentList() {
-      this.$store.dispatch("comment/getList", { article: this.id })
+      this.$store.dispatch("comment/getList", { article: this.id });
     },
     // 回复
     reply(pid) {
-      this.pid = pid
+      this.pid = pid;
     },
     // 取消回复
     cancelReply() {
-      this.pid = null
+      this.pid = null;
     },
     // 找到回复来源 type: 1 name | 2 内容
     findReplyParent(id, type) {
-      const parent = this.list.data.find(comment => Object.is(comment._id, id))
-      if(!!parent) {
-        if(type === 1) {
-          return parent.user ? parent.user.name : null
+      const parent = this.list.data.find(comment => Object.is(comment._id, id));
+      if (!!parent) {
+        if (type === 1) {
+          return parent.user ? parent.user.name : null;
         } else if (type === 2) {
-          return parent.content
+          return parent.content;
         }
       }
-      return null
+      return null;
     },
     // 提交评论
     submit() {
@@ -163,11 +164,12 @@ export default {
         meta: {
           ua: navigator.userAgent
         }
-      }
-      this.$store.dispatch("comment/postItem", obj)
+      };
+      storageUser.set(this.user);
+      this.$store.dispatch("comment/postItem", obj);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
