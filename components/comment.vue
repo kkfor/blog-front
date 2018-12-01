@@ -12,6 +12,19 @@
         class="item">
         <div class="user">
           <b>{{ item.user.name }}</b>
+          <span class="meta">
+            <span 
+              v-if="item.meta.location && item.meta.location.country && item.meta.location.city" 
+              class="location">
+              <span>
+                {{ item.meta.location.country }}
+              </span>
+              <span v-if="item.meta.location.city">-</span>
+              <span>
+                {{ item.meta.location.city }}
+              </span>
+            </span>
+          </span>
         </div>
         <div class="content">
           <div 
@@ -24,7 +37,7 @@
             {{ item.content }}
           </div>
         </div>
-        <div class="meta">
+        <div class="status">
           <span 
             class="reply" 
             @click="reply(item._id)">回复</span>
@@ -146,7 +159,10 @@ export default {
         pid: this.pid,
         article: this.id,
         content: this.content,
-        user: this.user
+        user: this.user,
+        meta: {
+          ua: navigator.userAgent
+        }
       }
       this.$store.dispatch("comment/postItem", obj)
     }
@@ -170,6 +186,10 @@ export default {
   .item {
     padding: 16px 2px;
     border-bottom: 1px dashed #ccc;
+    .user {
+      display: flex;
+      justify-content: space-between;
+    }
     .content {
       padding: 12px 0;
       .reply {
@@ -183,7 +203,7 @@ export default {
         }
       }
     }
-    .meta {
+    .status {
       .reply {
         padding-right: 8px;
         cursor: pointer;
