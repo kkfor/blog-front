@@ -4,7 +4,9 @@
     <div class="description">{{ item.content | text(128) }}</div>
     <div class="meta">
       <span>{{ item.createdAt | date('yyyy-MM-dd') }}</span>
-      <span>admin</span>
+      <span>浏览 {{ item.meta.views }}</span>
+      <span>评论 {{ item.meta.comments }}</span>
+      <span v-if="!!item.category.lenth">分类 {{ item.category.join(',') }}</span>
     </div>
   </div>
 </template>
@@ -34,9 +36,10 @@ export default {
     padding: 12px 0;
   }
   .meta {
+    font-size: 12px;
     color: #555;
     span {
-      margin-right: 16px;
+      margin-right: 8px;
     }
   }
 }

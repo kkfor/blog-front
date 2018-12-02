@@ -3,8 +3,9 @@
     <section class="article">
       <h1 class="title">{{ item.title }}</h1>
       <div class="meta">
-        <span>fdfd</span>
-        <span>作者</span>
+        <span>{{ item.createdAt | date('yyyy.MM.dd HH:mm') }}</span>
+        <span>阅读 {{ item.meta.views }}</span>
+        <span>评论 {{ item.meta.comments }}</span>
       </div>
       <div
         class="content"
@@ -52,6 +53,10 @@ export default {
     .meta {
       margin: 8px 0;
       color: #555;
+      font-size: 12px;
+      span {
+        margin-right: 6px;
+      }
     }
     .content {
       line-height: 1.8;

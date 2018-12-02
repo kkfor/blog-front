@@ -14,16 +14,13 @@ export default {
   },
 
   fetch({ store, params }) {
-    return store.dispatch('article/getList', params)
+    const { page = 1 } = params
+    return store.dispatch('article/getList', { page })
   }
 
 }
 </script>
 
 <style lang="scss" scoped>
-.page {
-  a {
-    padding: 4px;
-  }
-}
+
 </style>

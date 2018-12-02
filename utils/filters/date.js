@@ -3,7 +3,7 @@
  */
 
 //  返回时间字符串
-export const date = (times, format = 'yyyy.MM.dd hh:mm:ss') => {
+export const date = (times, format = 'yyyy.MM.dd HH:mm:ss') => {
   const time = Date.parse(times)
   if (!time) return null
 
@@ -12,7 +12,7 @@ export const date = (times, format = 'yyyy.MM.dd hh:mm:ss') => {
   const ele = {
     'M+': date.getMonth() + 1,
     'd+': date.getDate(),
-    'h+': date.getHours(),
+    'H+': date.getHours(),
     'm+': date.getMinutes(),
     's+': date.getSeconds(),
   }

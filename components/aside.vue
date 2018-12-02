@@ -30,6 +30,9 @@ export default {
 
 <style lang="scss" scoped>
 aside {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
   width: 260px;
   margin-left: 16px;
 }
