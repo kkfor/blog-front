@@ -46,15 +46,18 @@
         <input 
           v-model="user.name" 
           class="name" 
-          type="text" 
+          type="text"
+          maxlength="12"
           placeholder="昵称(必填)">
         <input 
           v-model="user.email" 
-          type="text" 
+          type="text"
+          maxlength="40"
           placeholder="邮箱(必填,不会公开)">
         <input 
           v-model="user.site" 
-          type="text" 
+          type="text"
+          maxlength="30"
           placeholder="网站(选填)">
       </div>
       <div 
@@ -69,11 +72,10 @@
         <div class="reply-content">{{ replyComment.content }}</div>
       </div>
       <div>
-        <textarea 
-          v-model="content" 
-          placeholder="写下你的评论..." 
-          name 
-          rows="5"/>
+        <textarea
+          v-model="content"
+          maxlength="300"
+          placeholder="写下你的评论..."/>
       </div>
       <div class="tools">
         <span @click="submit">发布</span>
@@ -156,6 +158,22 @@ export default {
     },
     // 提交评论
     submit() {
+      if(!this.user.name) {
+        alert('请输入昵称')
+        return
+      }
+      if(!this.user.email) {
+        alert('请输入邮箱')
+        return
+      }
+      if(!this.content) {
+        alert('请输入内容')
+        return
+      }
+      if(!/^[a-zA-Z0-9.]+@[a-zA-Z.]+$/.test(this.user.email)) {
+        alert('邮箱格式不正确')
+        return
+      }
       const obj = {
         pid: this.pid,
         article: this.id,
@@ -262,6 +280,11 @@ export default {
   .tools {
     padding: 4px 4px 0;
     text-align: right;
+  }
+  textarea {
+    min-height: 100px;
+    max-height: 300px;
+    resize: vertical;
   }
 }
 </style>
