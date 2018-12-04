@@ -14,6 +14,7 @@ export default {
     return ajax.get(uri)
   },
   getList(params) {
+    params.publish = true
     return ajax.get(url.getList, params)
   },
   postItem(obj) {

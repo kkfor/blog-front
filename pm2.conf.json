@@ -1,0 +1,7 @@
+{
+  "name": "nuxt-blog",
+  "script": "npm",
+  "args" : "start",
+  "watch": [".nuxt"],
+  "error_file": "./log/pm2/error.log"
+}

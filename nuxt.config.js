@@ -45,7 +45,7 @@ module.exports = {
   */
   css: [
     { src: '~assets/styles/index.scss', lang: 'scss' },
-    { src: 'highlight.js/styles/atom-one-light.css', lang: 'css' }
+    { src: 'highlight.js/styles/tomorrow.css', lang: 'css' }
   ],
 
   /*

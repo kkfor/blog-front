@@ -164,7 +164,7 @@ export default {
     overflow: auto;
     // font-size: 85%;
     line-height: 1.6;
-    background-color: #f6f8fa;
+    background-color: #f0f0f0;
     border-radius: 3px;
     code {
       padding: 0;
@@ -177,7 +177,7 @@ export default {
     padding: 0.2em 0.4em;
     margin: 0;
     // font-size: 85%;
-    background-color: #f6f8fa;
+    background-color: #f0f0f0;
     border-radius: 3px;
   }
 }
