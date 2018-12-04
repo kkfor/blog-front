@@ -104,61 +104,61 @@ export default {
         site: null
       },
       content: null
-    };
+    }
   },
   computed: {
     list() {
-      return this.$store.state.comment.list;
+      return this.$store.state.comment.list
     },
     replyComment() {
-      return this.list.data.find(comment => Object.is(comment._id, this.pid));
+      return this.list.data.find(comment => Object.is(comment._id, this.pid))
     }
   },
 
   mounted() {
     this.initUser()
     if (!this.list.total) {
-      this.loadCommentList();
+      this.loadCommentList()
     }
   },
   destroyed() {
-    this.$store.dispatch("comment/clearList");
+    this.$store.dispatch("comment/clearList")
   },
 
   methods: {
     initUser() {
-      const user = storageUser.get();
+      const user = storageUser.get()
       if (user && user.name && user.email) {
         this.user = user
       }
     },
     // 初始化评论列表
     loadCommentList() {
-      this.$store.dispatch("comment/getList", { article: this.id });
+      this.$store.dispatch("comment/getList", { article: this.id })
     },
     // 回复
     reply(pid) {
-      this.pid = pid;
+      this.pid = pid
     },
     // 取消回复
     cancelReply() {
-      this.pid = null;
+      this.pid = null
     },
     // 找到回复来源 type: 1 name | 2 内容
     findReplyParent(id, type) {
-      const parent = this.list.data.find(comment => Object.is(comment._id, id));
+      const parent = this.list.data.find(comment => Object.is(comment._id, id))
       if (!!parent) {
         if (type === 1) {
-          return parent.user ? parent.user.name : null;
+          return parent.user ? parent.user.name : null
         } else if (type === 2) {
-          return parent.content;
+          return parent.content
         }
       }
-      return null;
+      return null
     },
     // 提交评论
     submit() {
-      if(!this.user.name) {
+      if(/^\s+$/.test(this.user.name)) {
         alert('请输入昵称')
         return
       }
@@ -166,7 +166,7 @@ export default {
         alert('请输入邮箱')
         return
       }
-      if(!this.content) {
+      if(/^\s+$/.test(this.content)) {
         alert('请输入内容')
         return
       }
@@ -182,9 +182,10 @@ export default {
         meta: {
           ua: navigator.userAgent
         }
-      };
-      storageUser.set(this.user);
-      this.$store.dispatch("comment/postItem", obj);
+      }
+      this.content = null
+      storageUser.set(this.user)
+      this.$store.dispatch("comment/postItem", obj)
     }
   }
 };
