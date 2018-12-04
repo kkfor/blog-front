@@ -8,7 +8,7 @@
         <nuxt-link
           v-for="(item, index) in list"
           :key="index"
-          to="/category/label"
+          :to="`/category/${item.url}`" 
         >{{ item.slug }}</nuxt-link>
       </nav>
     </div>
