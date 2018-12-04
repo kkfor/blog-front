@@ -8,8 +8,8 @@
         <span>评论 {{ item.meta.comments }}</span>
       </div>
       <div
-        class="content"
-        v-html="item.content"
+        class="markdown-content"
+        v-html="content"
       />
     </section>
     <Comment :id="item._id" />
@@ -19,6 +19,7 @@
 <script>
 import api from '~/api'
 import Comment from '~/components/comment'
+import marked from '~/plugins/marked'
 
 export default {
   components: {
@@ -30,9 +31,19 @@ export default {
     return store.dispatch('article/getItem', id)
   },
 
+  head() {
+    return {
+      title: this.$store.state.article.item.title,
+      titleTemplate: '%s-kkfor前端技术分享博客'
+    }
+  },
+
   computed: {
     item() {
       return this.$store.state.article.item
+    },
+    content() {
+      return marked(this.item.content)
     }
   }
 
@@ -58,9 +69,116 @@ export default {
         margin-right: 6px;
       }
     }
-    .content {
-      line-height: 1.8;
+  }
+}
+</style>
+
+<style lang="scss">
+.markdown-content {
+  line-height: 2;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  p, blockquote, ul, ol, dl, pre {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  h1,h2 {
+    border-bottom: 1px solid #eaecef;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding-bottom: .3em;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-weight: 600;
+
+    padding-left: 0;
+    text-indent: 0;
+
+    &:target{
+      padding-top: 4.5rem;
     }
+  }
+
+  a {
+    color: #0366d6;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: 2rem;
+
+    >li {
+      line-height: 1.4rem;
+      padding: .5rem;
+      list-style-type: disc;
+
+
+      >p {
+        text-indent: 0;
+      }
+
+      >ul {
+
+        li {
+          list-style-type: circle;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  ol > li {
+    list-style-type: decimal;
+  }
+
+  blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+
+    p {
+      text-indent: 0em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  pre {
+    padding: 12px;
+    overflow: auto;
+    // font-size: 85%;
+    line-height: 1.6;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    code {
+      padding: 0;
+      margin: 0;
+      font-size: 100%;
+      background: transparent;
+    }
+  }
+  code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    // font-size: 85%;
+    background-color: #f6f8fa;
+    border-radius: 3px;
   }
 }
 </style>

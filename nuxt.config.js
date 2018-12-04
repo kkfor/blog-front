@@ -13,6 +13,23 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
+    __dangerouslyDisableSanitizers: ['script'],
+    script: [
+      {src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true},
+      {innerHTML: `(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: \"ca-pub-1443322611833785\",
+        enable_page_level_ads: true
+      });`},
+      {
+        innerHTML: `var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = \"https://hm.baidu.com/hm.js?0068ae891aa9137713a97c4b752665b0\";
+          var s = document.getElementsByTagName(\"script\")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();`
+      }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
@@ -21,13 +38,14 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#3b8070' },
 
   /*
   ** Global CSS
   */
   css: [
-    { src: '~assets/styles/index.scss', lang: 'scss' }
+    { src: '~assets/styles/index.scss', lang: 'scss' },
+    { src: 'highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
 
   /*
