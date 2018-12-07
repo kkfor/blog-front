@@ -180,5 +180,11 @@ export default {
     background-color: #f0f0f0;
     border-radius: 3px;
   }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+  }
 }
 </style>
