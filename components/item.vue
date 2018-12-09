@@ -34,6 +34,8 @@ export default {
   .description {
     line-height: 1.6;
     padding: 12px 0;
+    white-space: normal;
+    word-break: break-all;
   }
   .meta {
     font-size: 12px;

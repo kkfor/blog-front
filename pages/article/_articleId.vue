@@ -180,5 +180,12 @@ export default {
     background-color: #f0f0f0;
     border-radius: 3px;
   }
+
+  hr {
+    margin-bottom: 8px;
+    height: 1px;
+    background: #ccc;
+    border: none;
+  }
 }
 </style>
