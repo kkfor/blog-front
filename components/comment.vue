@@ -158,7 +158,7 @@ export default {
     },
     // 提交评论
     submit() {
-      if(/^\s+$/.test(this.user.name)) {
+      if(!this.user.name || /^\s+$/.test(this.user.name)) {
         alert('请输入昵称')
         return
       }
@@ -166,7 +166,7 @@ export default {
         alert('请输入邮箱')
         return
       }
-      if(/^\s+$/.test(this.content)) {
+      if(!this.content || /^\s+$/.test(this.content)) {
         alert('请输入内容')
         return
       }

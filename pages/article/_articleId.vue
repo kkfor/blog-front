@@ -187,5 +187,12 @@ export default {
     background: #ccc;
     border: none;
   }
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 5px solid #ddd;
+    margin-bottom: 8px;
+  }
 }
 </style>
