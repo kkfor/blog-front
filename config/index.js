@@ -1,7 +1,5 @@
 const isDev = process.env.NODE_ENV === 'development'
 
-
-
 export default {
-  baseURL: isDev ? '//localhost:5000/api' : '//api.kkfor.com/api'
+  baseURL: isDev ? 'http://localhost:5000/api' : 'https://api.kkfor.com/api'
 }
