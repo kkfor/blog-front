@@ -7,12 +7,11 @@
         <span>阅读 {{ item.meta.views }}</span>
         <span>评论 {{ item.meta.comments }}</span>
       </div>
-      <div
-        class="markdown-content"
-        v-html="content"
-      />
+      <div 
+        class="markdown-content" 
+        v-html="content"/>
     </section>
-    <Comment :id="item._id" />
+    <Comment :id="item._id"/>
   </div>
 </template>
 
@@ -26,9 +25,11 @@ export default {
     Comment
   },
 
-  fetch({ store, params }) {
+  fetch({ store, params, error }) {
     const id = params.articleId
-    return store.dispatch('article/getItem', id)
+    return store.dispatch('article/getItem', id).catch(err => {
+      error({})
+    })
   },
 
   head() {
@@ -77,11 +78,17 @@ export default {
 .markdown-content {
   line-height: 2;
   font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-  p, blockquote, ul, ol, dl, pre {
+  p,
+  blockquote,
+  ul,
+  ol,
+  dl,
+  pre {
     margin-top: 0;
     margin-bottom: 8px;
   }
-  h1,h2 {
+  h1,
+  h2 {
     border-bottom: 1px solid #eaecef;
   }
   h1,
@@ -90,7 +97,7 @@ export default {
   h4,
   h5,
   h6 {
-    padding-bottom: .3em;
+    padding-bottom: 0.3em;
     margin-top: 12px;
     margin-bottom: 8px;
     font-weight: 600;
@@ -98,7 +105,7 @@ export default {
     padding-left: 0;
     text-indent: 0;
 
-    &:target{
+    &:target {
       padding-top: 4.5rem;
     }
   }
@@ -115,18 +122,16 @@ export default {
   ol {
     padding-left: 2rem;
 
-    >li {
+    > li {
       line-height: 1.4rem;
-      padding: .5rem;
+      padding: 0.5rem;
       list-style-type: disc;
 
-
-      >p {
+      > p {
         text-indent: 0;
       }
 
-      >ul {
-
+      > ul {
         li {
           list-style-type: circle;
         }

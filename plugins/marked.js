@@ -20,13 +20,17 @@ const renderer = new marked.Renderer()
 // 段落解析
 const paragraphParse = text => `<p>${text}</p>`
 
-// 代码解析
-// const codeParse = (code, lang, escaped) {
-
-// }
+// 链接解析
+const linkParse = (href, title, text) => {
+  const isSelf = href.includes('kkfor.com')
+  return `<a href=${href}
+      class="link"
+      title=${title || text}
+      ${isSelf ? '' : 'rel="external nofollow noopenter"'}>${text}</a>`
+}
 
 renderer.paragraph = paragraphParse
-// renderer.code = codeParse
+renderer.link = linkParse
 
 export default (content, tags) => {
 
