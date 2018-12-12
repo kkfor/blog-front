@@ -9,7 +9,7 @@
           v-for="(item, index) in list"
           :key="index"
           :to="`/${item.url}`" 
-        >{{ item.slug }}</nuxt-link>
+        >{{ item.name }}</nuxt-link>
       </nav>
     </div>
   </header>

@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .page {
+  display: flex;
   a {
     padding: 4px;
   }

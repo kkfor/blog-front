@@ -22,7 +22,8 @@ export default {
       return this.$store.state.article.list
     }
   }
-};
+
+}
 </script>
 
 <style lang="scss" scoped>

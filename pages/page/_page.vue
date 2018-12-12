@@ -13,9 +13,11 @@ export default {
     Article
   },
 
-  fetch({ store, params }) {
+  fetch({ store, params, error }) {
     const { page = 1 } = params
-    return store.dispatch('article/getList', { page })
+    return store.dispatch('article/getList', { page }).catch(err => {
+      error({})
+    })
   }
 
 }
