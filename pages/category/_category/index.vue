@@ -13,6 +13,12 @@ export default {
     Article
   },
 
+  validate({ params, store }) {
+    return params.category && store.state.category.list.some(category => {
+      return Object.is(category.slug, params.category)
+    })
+  },
+
   fetch({ store, params }) {
     return store.dispatch('article/getList', params)
   },
