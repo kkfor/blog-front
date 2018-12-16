@@ -24,7 +24,7 @@
           v-for="(item, index) in tagList"
           :to="`/tag/${item.slug}`"
           :key="index"
-        >{{ item.name }}</nuxt-link>
+        >{{ item.name }} [{{ item.count }}] </nuxt-link>
       </div>
     </div>
   </aside>
