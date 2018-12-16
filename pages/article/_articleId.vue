@@ -19,6 +19,7 @@
 import api from '~/api'
 import Comment from '~/components/comment'
 import marked from '~/plugins/marked'
+import { text } from '~/utils/filters'
 
 export default {
   components: {
@@ -33,9 +34,15 @@ export default {
   },
 
   head() {
+    const item = this.$store.state.article.item
     return {
-      title: this.$store.state.article.item.title,
-      titleTemplate: '%s-kkfor前端技术分享博客'
+      title: item.title,
+      titleTemplate: '%s-kkfor前端技术分享博客',
+      meta: [
+        {
+          hid: 'description', name: 'description', content: item.content.substr(0, 200)
+        }
+      ]
     }
   },
 

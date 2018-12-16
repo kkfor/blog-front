@@ -12,7 +12,7 @@ const mutations = {
 
 const actions = {
   async getList({ commit }) {
-    const res = await api.category.getList()
+    const res = await api.tag.getList()
     commit('GET_LIST', res)
   }
 }

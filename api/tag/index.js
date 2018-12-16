@@ -1,11 +1,11 @@
 import ajax from '../ajax'
 
 const url = {
-  getItem: '/category/',
-  getList: '/category',
-  postItem: '/category',
-  putItem: '/category/',
-  delItem: '/category/'
+  getItem: '/tag/',
+  getList: '/tag',
+  postItem: '/tag',
+  putItem: '/tag/',
+  delItem: '/tag/'
 }
 
 export default {
