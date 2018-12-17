@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="container">
+    <div class="container header">
       <nav>
         <nuxt-link
           to="/"
@@ -11,14 +11,32 @@
           :to="`/${item.url}`" 
         >{{ item.name }}</nuxt-link>
       </nav>
+      <div class="search">
+        <input
+          v-model="keyword"
+          placeholder="搜索文章"
+          type="text"
+          autocomplete="off">
+        <span @click="search">搜索</span>
+      </div>
     </div>
   </header>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      keyword: ''
+    }
+  },
   computed: {
     list(){
       return this.$store.state.category.list
+    }
+  },
+  methods: {
+    search() {
+      this.$store.dispatch('article/getSearchList', {keyword: this.keyword})
     }
   }
 }
@@ -40,6 +58,28 @@ export default {
           color: #111;
         }
       }
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .search {
+    display: flex;
+    background: #eee;
+    margin-right: 10px;
+    input {
+      flex: 1;
+      background: #eee;
+      border: none;
+    }
+    span {
+      padding: 0 8px;
+      margin: 8px 0;
+      border-left: 1px solid #ccc;
+      cursor: pointer;
     }
   }
 </style>

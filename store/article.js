@@ -18,6 +18,9 @@ const mutations = {
   },
   GET_ITEM(state, action) {
     state.item = action.result
+  },
+  GET_SEARCH_LIST(state, action) {
+    state.list = action.result
   }
 }
 
@@ -35,6 +38,11 @@ const actions = {
   async getItem({ commit }, id) {
     const res = await api.article.getItem(id)
     commit('GET_ITEM', res)
+  },
+
+  async getSearchList({ commit }, params) {
+    const res = await api.article.getList(params)
+    commit('GET_SEARCH_LIST', res)
   }
 }
 
