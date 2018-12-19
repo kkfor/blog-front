@@ -29,9 +29,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .article-list {
-    padding: 16px;
-    background: #fff;
-  }
+.article-list {
+  padding: 16px;
+  background: #fff;
+}
 </style>
-

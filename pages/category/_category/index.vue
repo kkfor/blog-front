@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import api from "~/api"
-import Article from "~/components/article"
+import api from '~/api'
+import Article from '~/components/article'
 
 export default {
   components: {
@@ -14,9 +14,12 @@ export default {
   },
 
   validate({ params, store }) {
-    return params.category && store.state.category.list.some(category => {
-      return Object.is(category.slug, params.category)
-    })
+    return (
+      params.category &&
+      store.state.category.list.some(category => {
+        return Object.is(category.slug, params.category)
+      })
+    )
   },
 
   fetch({ store, params }) {
@@ -28,9 +31,5 @@ export default {
       return this.$store.state.article.list
     }
   }
-
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

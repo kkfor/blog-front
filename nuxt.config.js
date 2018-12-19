@@ -15,11 +15,16 @@ module.exports = {
     ],
     __dangerouslyDisableSanitizers: ['script'],
     script: [
-      {src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true},
-      {innerHTML: `(adsbygoogle = window.adsbygoogle || []).push({
+      {
+        src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        async: true
+      },
+      {
+        innerHTML: `(adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: \"ca-pub-1443322611833785\",
         enable_page_level_ads: true
-      });`},
+      });`
+      },
       {
         innerHTML: `var _hmt = _hmt || [];
         (function() {
@@ -30,9 +35,7 @@ module.exports = {
         })();`
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -51,15 +54,12 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    '~/plugins/filter.js'
-  ],
+  plugins: ['~/plugins/filter.js'],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [
-  ],
+  modules: [],
 
   /*
   ** Build configuration

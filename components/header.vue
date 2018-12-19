@@ -30,56 +30,56 @@ export default {
     }
   },
   computed: {
-    list(){
+    list() {
       return this.$store.state.category.list
     }
   },
   methods: {
     search() {
-      this.$store.dispatch('article/getSearchList', {keyword: this.keyword})
+      this.$store.dispatch('article/getSearchList', { keyword: this.keyword })
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-  header {
-    position: fixed;
-    height: 56px;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    nav {
-      a {
-        font-size: 16px;
-        line-height: 56px;
-        padding: 0 12px;
-        &:hover {
-          color: #111;
-        }
+header {
+  position: fixed;
+  height: 56px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  nav {
+    a {
+      font-size: 16px;
+      line-height: 56px;
+      padding: 0 12px;
+      &:hover {
+        color: #111;
       }
     }
   }
+}
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .search {
-    display: flex;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search {
+  display: flex;
+  background: #eee;
+  margin-right: 10px;
+  input {
+    flex: 1;
     background: #eee;
-    margin-right: 10px;
-    input {
-      flex: 1;
-      background: #eee;
-      border: none;
-    }
-    span {
-      padding: 0 8px;
-      margin: 8px 0;
-      border-left: 1px solid #ccc;
-      cursor: pointer;
-    }
+    border: none;
   }
+  span {
+    padding: 0 8px;
+    margin: 8px 0;
+    border-left: 1px solid #ccc;
+    cursor: pointer;
+  }
+}
 </style>

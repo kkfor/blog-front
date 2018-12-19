@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import api from "~/api"
-import Article from "~/components/article"
+import api from '~/api'
+import Article from '~/components/article'
 
 export default {
   components: {
@@ -19,10 +19,8 @@ export default {
       error({})
     })
   }
-
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>

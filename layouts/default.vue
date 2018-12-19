@@ -16,8 +16,8 @@ export default {
   components: {
     Header,
     Main,
-    Footer,
-  }  
+    Footer
+  }
 }
 </script>
 
@@ -40,5 +40,4 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
 </style>
