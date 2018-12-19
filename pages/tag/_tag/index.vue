@@ -22,6 +22,15 @@ export default {
     )
   },
 
+  head() {
+    const { tag } = this.$route.params
+    const item = this.$store.state.tag.list.find(item => item.slug === tag)
+    return {
+      title: item.name,
+      titleTemplate: '%s-kkfor前端技术分享博客'
+    }
+  },
+
   fetch({ store, params }) {
     return store.dispatch('article/getList', params)
   },

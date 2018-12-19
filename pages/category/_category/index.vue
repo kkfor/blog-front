@@ -21,6 +21,17 @@ export default {
     )
   },
 
+  head() {
+    const { category } = this.$route.params
+    const item = this.$store.state.category.list.find(
+      item => item.slug === category
+    )
+    return {
+      title: item.name,
+      titleTemplate: '%s-kkfor前端技术分享博客'
+    }
+  },
+
   fetch({ store, params }) {
     return store.dispatch('article/getList', params)
   },
