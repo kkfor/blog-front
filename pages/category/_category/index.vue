@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import api from '~/api'
 import Article from '~/components/article'
 
 export default {

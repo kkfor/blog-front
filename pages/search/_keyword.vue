@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import api from '~/api'
 import Article from '~/components/article'
 
 export default {
@@ -24,6 +23,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

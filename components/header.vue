@@ -36,7 +36,8 @@ export default {
   },
   methods: {
     search() {
-      this.$store.dispatch('article/getSearchList', { keyword: this.keyword })
+      this.$router.push(`/search/${this.keyword}`)
+      // this.$store.dispatch('article/getSearchList', { keyword: this.keyword })
     }
   }
 }
