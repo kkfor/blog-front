@@ -26,6 +26,7 @@ const linkParse = (href, title, text) => {
   return `<a href=${href}
       class="link"
       title=${title || text}
+      target='_blank'
       ${isSelf ? '' : 'rel="external nofollow noopenter"'}>${text}</a>`
 }
 
