@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import api from "~/api";
-import Article from "~/components/article";
+import api from '~/api'
+import Article from '~/components/article'
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
       return this.$store.state.article.list
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

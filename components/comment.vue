@@ -85,8 +85,8 @@
 </template>
 
 <script>
-import api from "~/api";
-import { storageUser } from "~/utils/storage";
+import api from '~/api'
+import { storageUser } from '~/utils/storage'
 
 export default {
   props: {
@@ -122,7 +122,7 @@ export default {
     }
   },
   destroyed() {
-    this.$store.dispatch("comment/clearList")
+    this.$store.dispatch('comment/clearList')
   },
 
   methods: {
@@ -134,7 +134,7 @@ export default {
     },
     // 初始化评论列表
     loadCommentList() {
-      this.$store.dispatch("comment/getList", { article: this.id })
+      this.$store.dispatch('comment/getList', { article: this.id })
     },
     // 回复
     reply(pid) {
@@ -158,19 +158,19 @@ export default {
     },
     // 提交评论
     submit() {
-      if(!this.user.name || /^\s+$/.test(this.user.name)) {
+      if (!this.user.name || /^\s+$/.test(this.user.name)) {
         alert('请输入昵称')
         return
       }
-      if(!this.user.email) {
+      if (!this.user.email) {
         alert('请输入邮箱')
         return
       }
-      if(!this.content || /^\s+$/.test(this.content)) {
+      if (!this.content || /^\s+$/.test(this.content)) {
         alert('请输入内容')
         return
       }
-      if(!/^[a-zA-Z0-9.]+@[a-zA-Z.]+$/.test(this.user.email)) {
+      if (!/^[a-zA-Z0-9.]+@[a-zA-Z.]+$/.test(this.user.email)) {
         alert('邮箱格式不正确')
         return
       }
@@ -185,10 +185,10 @@ export default {
       }
       this.content = null
       storageUser.set(this.user)
-      this.$store.dispatch("comment/postItem", obj)
+      this.$store.dispatch('comment/postItem', obj)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

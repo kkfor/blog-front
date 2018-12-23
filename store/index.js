@@ -10,7 +10,9 @@ export const actions = {
 
     const { articleId } = params
     if (articleId) {
-      initAppData.push(store.dispatch('comment/getList', { article: articleId }))
+      initAppData.push(
+        store.dispatch('comment/getList', { article: articleId })
+      )
     }
 
     return Promise.all(initAppData)

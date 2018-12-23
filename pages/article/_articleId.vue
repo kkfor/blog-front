@@ -1,6 +1,6 @@
 <template>
   <div class="left-content">
-    <section class="article">
+    <article class="article">
       <h1 class="title">{{ item.title }}</h1>
       <div class="meta">
         <span>{{ item.createdAt | date('yyyy.MM.dd HH:mm') }}</span>
@@ -10,7 +10,7 @@
       <div 
         class="markdown-content" 
         v-html="content"/>
-    </section>
+    </article>
     <Comment :id="item._id"/>
   </div>
 </template>
@@ -40,7 +40,9 @@ export default {
       titleTemplate: '%s-kkfor前端技术分享博客',
       meta: [
         {
-          hid: 'description', name: 'description', content: item.content.substr(0, 200)
+          hid: 'description',
+          name: 'description',
+          content: item.content.substr(0, 200)
         }
       ]
     }
@@ -54,18 +56,15 @@ export default {
       return marked(this.item.content)
     }
   }
-
 }
 </script>
 
 <style lang="scss" scoped>
 .left-content {
-  section {
+  .article {
     padding: 16px;
     margin-bottom: 16px;
     background: #fff;
-  }
-  .article {
     .title {
       font-size: 22px;
     }
@@ -84,7 +83,7 @@ export default {
 <style lang="scss">
 .markdown-content {
   line-height: 2;
-  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
   p,
   blockquote,
   ul,
