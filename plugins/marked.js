@@ -22,12 +22,13 @@ const paragraphParse = text => `<p>${text}</p>`
 
 // 链接解析
 const linkParse = (href, title, text) => {
-  const isSelf = href.includes('kkfor.com')
+  const isSelf = href.includes('kkfor.com/')
   return `<a href=${href}
       class="link"
-      title=${title || text}
-      target='_blank'
-      ${isSelf ? '' : 'rel="external nofollow noopenter"'}>${text}</a>`
+      title=${title || href}
+      ${
+        isSelf ? '' : 'target="_blank" rel="external nofollow noopenter"'
+      }>${text}</a>`
 }
 
 renderer.paragraph = paragraphParse
