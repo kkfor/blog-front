@@ -42,7 +42,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: item.content.substr(0, 200)
+          content: text(item.content, 120, false)
         }
       ]
     }
