@@ -84,6 +84,7 @@ export default {
 .markdown-content {
   line-height: 2;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+
   p,
   blockquote,
   ul,
@@ -91,24 +92,24 @@ export default {
   dl,
   pre {
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 0.6em;
   }
+
   h1,
   h2 {
-    border-bottom: 1px solid #eaecef;
+    border-bottom: 1px solid #e2e2e2;
   }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    padding-bottom: 0.3em;
-    margin-top: 12px;
-    margin-bottom: 8px;
+    padding: 0;
+    margin: 0 0 0.6em;
     font-weight: 600;
 
-    padding-left: 0;
     text-indent: 0;
 
     &:target {
@@ -119,6 +120,7 @@ export default {
   a {
     color: #0366d6;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -126,11 +128,12 @@ export default {
 
   ul,
   ol {
-    padding-left: 2rem;
+    padding: 0.2em 0.8em;
 
     > li {
-      line-height: 1.4rem;
-      padding: 0.5rem;
+      line-height: 2;
+      padding-left: 0.2em;
+      margin-left: 0.2em;
       list-style-type: disc;
 
       > p {
@@ -149,21 +152,29 @@ export default {
     }
   }
 
+  > ul,
+  ol {
+    padding: 0 20px;
+  }
+
   ol > li {
     list-style-type: decimal;
   }
 
   blockquote {
+    margin: 0;
+    margin-bottom: 0.6em;
     padding: 0 1em;
     color: #6a737d;
     border-left: 0.25em solid #dfe2e5;
 
     p {
-      text-indent: 0em;
+      text-indent: 0;
 
       &:first-child {
         margin-top: 0;
       }
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -171,12 +182,12 @@ export default {
   }
 
   pre {
-    padding: 12px;
+    padding: 0.6em;
     overflow: auto;
-    // font-size: 85%;
     line-height: 1.6;
     background-color: #f0f0f0;
     border-radius: 3px;
+
     code {
       padding: 0;
       margin: 0;
@@ -184,26 +195,40 @@ export default {
       background: transparent;
     }
   }
+
   code {
     padding: 0.2em 0.4em;
     margin: 0;
-    // font-size: 85%;
     background-color: #f0f0f0;
     border-radius: 3px;
   }
 
   hr {
-    margin-bottom: 8px;
+    margin-bottom: 0.6em;
     height: 1px;
-    background: #ccc;
+    background: #dadada;
     border: none;
   }
+
+  table {
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-bottom: 0.6em;
+    border-collapse: collapse;
+    text-align: left;
+    th,
+    td {
+      padding: 0.1em 0.4em;
+      border: 1px solid #ddd;
+    }
+  }
+
   img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
     border: 5px solid #ddd;
-    margin-bottom: 8px;
+    margin-bottom: 0.6em;
   }
 }
 </style>
