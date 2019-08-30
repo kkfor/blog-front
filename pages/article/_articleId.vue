@@ -11,19 +11,19 @@
         class="markdown-content" 
         v-html="content"/>
     </article>
-    <Comment :id="item._id"/>
+    <!-- <Comment :id="item._id"/> -->
   </div>
 </template>
 
 <script>
 import api from '~/api'
-import Comment from '~/components/comment'
+// import Comment from '~/components/comment'
 import marked from '~/plugins/marked'
 import { text } from '~/utils/filters'
 
 export default {
   components: {
-    Comment
+    // Comment
   },
 
   fetch({ store, params, error }) {
@@ -42,7 +42,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: text(item.content, 120, false)
+          // content: text(item.content, 120, false)
         }
       ]
     }

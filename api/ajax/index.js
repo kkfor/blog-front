@@ -3,7 +3,7 @@ import config from '~/config'
 
 const instance = axios.create({
   baseURL: config.baseURL,
-  withCredentials: true
+  // withCredentials: true
 })
 
 instance.interceptors.request.use(function(req) {
@@ -12,29 +12,6 @@ instance.interceptors.request.use(function(req) {
 instance.interceptors.response.use(function(res) {
   return res.data
 })
-//   if(res.status === 200) {
-//     if(res.data.code === 1) {
-//       // openNotification({type: 'success', content: res.data.message})
-//       return res.data
-//     }
-//     if(res.data.code === 0) {
-//       // openNotification({type: 'error', content: res.data.message})
-//       throw new Error(res.data.message)
-//     }
-//   }
-// }, function(error) {
-//   if (error.response && error.response.status === 401) {
-//     // openNotification({type: 'error', content: error.response.data.message})
-//   }
-// })
-
-// const openNotification = ({type='open', content}) => {
-//   notification[type]({
-//     message: '通知',
-//     description: content,
-//     duration: 2
-//   })
-// }
 
 // const Ajax = (methods, url, data) => {
 //   return new Promise((resolve, reject) => {

@@ -4,6 +4,7 @@
 
 //  返回时间字符串
 export const date = (times, format = 'yyyy.MM.dd HH:mm:ss') => {
+  console.log(times)
   const time = Date.parse(times)
   if (!time) return null
 

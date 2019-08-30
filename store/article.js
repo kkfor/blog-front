@@ -1,4 +1,5 @@
 import api from '../api'
+import consolaGlobalInstance from '_consola@2.10.1@consola';
 
 const state = () => ({
   list: {
@@ -10,17 +11,17 @@ const state = () => ({
 
 const mutations = {
   GET_LIST(state, action) {
-    state.list = action.result
+    state.list = action
   },
 
   GET_HOT_LIST(state, action) {
-    state.hot = action.result.data
+    state.hot = action
   },
   GET_ITEM(state, action) {
-    state.item = action.result
+    state.item = action
   },
   GET_SEARCH_LIST(state, action) {
-    state.list = action.result
+    state.list = action
   }
 }
 
@@ -37,6 +38,7 @@ const actions = {
 
   async getItem({ commit }, id) {
     const res = await api.article.getItem(id)
+    console.log(res)
     commit('GET_ITEM', res)
   },
 
