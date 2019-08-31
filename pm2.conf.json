@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-blog",
+  "name": "blog-front",
   "script": "npm",
   "args" : "start",
   "watch": [".nuxt"],

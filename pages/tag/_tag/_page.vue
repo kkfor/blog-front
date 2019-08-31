@@ -14,7 +14,6 @@ export default {
   },
 
   fetch({ store, params }) {
-    console.log(params)
     return store.dispatch('article/getList', params)
   },
 

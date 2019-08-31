@@ -38,7 +38,6 @@ const actions = {
 
   async getItem({ commit }, id) {
     const res = await api.article.getItem(id)
-    console.log(res)
     commit('GET_ITEM', res)
   },
 

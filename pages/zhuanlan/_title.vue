@@ -10,7 +10,6 @@
 export default {
   layout: 'zhuanlan',
   fetch({ store, params }) {
-    console.log(params)
     return store.dispatch('article/getList', params)
   }
 }
