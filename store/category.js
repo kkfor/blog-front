@@ -6,7 +6,7 @@ const state = () => ({
 
 const mutations = {
   GET_LIST(state, action) {
-    state.list = action.result
+    state.list = action
   }
 }
 

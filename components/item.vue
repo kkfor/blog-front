@@ -5,7 +5,7 @@
     <div class="meta">
       <span>{{ item.createdAt | date('yyyy-MM-dd') }}</span>
       <span>浏览 {{ item.meta.views }}</span>
-      <span>评论 {{ item.meta.comments }}</span>
+      <!-- <span>评论 {{ item.meta.comments }}</span> -->
       <span v-if="!!item.category.length">分类 {{ item.category.map(sub => sub.slug ).join(',') }}</span>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="main-left">
       <slot />
     </div>
-    <Aside />
+    <!-- <Aside /> -->
   </main>
 </template>
 
@@ -19,8 +19,9 @@ export default {
 <style lang="scss" scoped>
 main {
   display: flex;
-  margin-top: 56px;
-  padding: 16px 0;
+  padding: 72px 0 60px;
+  min-height: 100%;
+  margin-bottom: -50px;
 }
 .main-left {
   flex: 1;

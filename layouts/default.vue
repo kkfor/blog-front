@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <Header />
     <Main>
       <nuxt/>
@@ -39,5 +39,9 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.layout {
+  height: 100%;
 }
 </style>

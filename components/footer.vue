@@ -13,7 +13,8 @@ export default {}
 </script>
 <style lang="scss" scoped>
 footer {
-  padding: 16px 0;
+  height: 50px;
+  line-height: 50px;
   background: #fff;
   text-align: center;
   color: #999;

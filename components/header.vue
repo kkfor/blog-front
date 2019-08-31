@@ -11,14 +11,14 @@
           :to="`/${item.url}`" 
         >{{ item.name }}</nuxt-link>
       </nav>
-      <div class="search">
+      <!-- <div class="search">
         <input
           v-model="keyword"
           placeholder="搜索文章"
           type="text"
           autocomplete="off">
         <span @click="search">搜索</span>
-      </div>
+      </div> -->
     </div>
   </header>
 </template>

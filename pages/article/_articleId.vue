@@ -5,7 +5,7 @@
       <div class="meta">
         <span>{{ item.createdAt | date('yyyy.MM.dd HH:mm') }}</span>
         <span>阅读 {{ item.meta.views }}</span>
-        <span>评论 {{ item.meta.comments }}</span>
+        <!-- <span>评论 {{ item.meta.comments }}</span> -->
       </div>
       <div 
         class="markdown-content" 
@@ -42,7 +42,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          // content: text(item.content, 120, false)
+          content: text(item.content, 120, false)
         }
       ]
     }
