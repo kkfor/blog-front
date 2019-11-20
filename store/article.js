@@ -1,5 +1,4 @@
 import api from '../api'
-import consolaGlobalInstance from '_consola@2.10.1@consola';
 
 const state = () => ({
   list: {
