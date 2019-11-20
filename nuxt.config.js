@@ -18,14 +18,17 @@ module.exports = {
     __dangerouslyDisableSanitizers: ['script'],
     script: [
       {
-        src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        async: true
+        src: "//cpro.baidustatic.com/cpro/ui/c.js",
+        async: true,
+        defer: true
       },
       {
-        innerHTML: `(adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: \"ca-pub-1443322611833785\",
-        enable_page_level_ads: true
-      });`
+        innerHTML: `(function() {
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u5424775",
+              container: 'side_ad'
+          });
+        })();`
       },
       {
         innerHTML: `var _hmt = _hmt || [];

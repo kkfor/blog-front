@@ -11,7 +11,7 @@
         class="markdown-content" 
         v-html="content"/>
     </article>
-    <Comment :id="item._id"/>
+    <!-- <Comment :id="item._id"/> -->
   </div>
 </template>
 

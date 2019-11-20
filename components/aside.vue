@@ -1,5 +1,6 @@
 <template>
   <aside>
+    <div id="side_ad"></div>
     <div class="card hot">
       <div class="card-header">热门文章</div>
       <div class="card-body">
@@ -65,6 +66,7 @@ aside {
   }
 }
 .hot {
+  margin-top: 16px;
   ul {
     li {
       line-height: 1.6;

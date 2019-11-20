@@ -1,5 +1,3 @@
-import api from '../api'
-
 export const actions = {
   nuxtServerInit(store, { req, params, route }) {
     const initAppData = [
