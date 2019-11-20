@@ -3,7 +3,7 @@
     <div class="main-left">
       <slot />
     </div>
-    <!-- <Aside /> -->
+    <Aside />
   </main>
 </template>
 

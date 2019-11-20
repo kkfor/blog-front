@@ -32,7 +32,7 @@ const actions = {
 
   async getHotList({ commit }) {
     const res = await api.article.getList({ hot: 1 })
-    commit('GET_HOT_LIST', res)
+    commit('GET_HOT_LIST', res.data)
   },
 
   async getItem({ commit }, id) {
