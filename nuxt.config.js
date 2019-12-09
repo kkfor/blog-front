@@ -23,14 +23,6 @@ module.exports = {
         defer: true
       },
       {
-        innerHTML: `(function() {
-          (window.slotbydup = window.slotbydup || []).push({
-              id: "u5424775",
-              container: 'side_ad'
-          });
-        })();`
-      },
-      {
         innerHTML: `var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
